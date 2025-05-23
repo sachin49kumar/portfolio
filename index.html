@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachin Kumar | Senior Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee; /* Vibrant blue */
+            --primary-light: #e0e7ff;
+            --primary-dark: #3730a3;
+            --secondary: #7209b7; /* Purple accent */
+            --accent: #f72585; /* Pink accent */
+            --accent-light: #ffd6e7;
+            --dark: #1a1a2e; /* Deep navy */
+            --dark-light: #16213e;
+            --medium: #4a4e69;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --success: #4cc9f0; /* Teal */
+            --warning: #f8961e; /* Orange */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: white;
+            padding: 80px 0 120px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            background-color: var(--white);
+            background-image: url('/1694588427770.jpeg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(247, 37, 133, 0.3);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(247, 37, 133, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #e51779;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(247, 37, 133, 0.4);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: -60px;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 80px;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--medium);
+            margin-bottom: 15px;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--accent);
+            z-index: 1;
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .company {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .date {
+            color: var(--medium);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+            background: var(--primary-light);
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .job-description {
+            color: var(--medium);
+            margin-bottom: 15px;
+        }
+        
+        .job-description li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .job-description li:before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .job-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .skill-tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .project-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #e0f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-image {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .project-tech {
+            color: var(--medium);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .project-description {
+            color: var(--medium);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-link {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        
+        .skill-category {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .skill-category-title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            color: var(--medium);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-list li:hover {
+            color: var(--dark);
+            transform: translateX(5px);
+        }
+        
+        .skill-list li:before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background: var(--light);
+        }
+        
+        .contact-item:hover {
+            background: var(--primary-light);
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text {
+            font-size: 0.95rem;
+            color: var(--medium);
+        }
+        
+        .contact-text strong {
+            display: block;
+            color: var(--dark);
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+        }
+        
+        .footer-text {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card, .project-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.2s; }
+        .card:nth-child(4) { animation-delay: 0.3s; }
+        .card:nth-child(5) { animation-delay: 0.4s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="profile-pic"></div>
+            <div class="header-content">
+                <h1>Sachin Kumar</h1>
+                <p class="tagline">Senior Software Engineer | Cloud-Native Applications | Microservices</p>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/ksachin049" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/sachin49kumar" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:sachin8447@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+918802738635" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-paper-plane"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section class="card" id="about">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-text">
+                I'm a passionate software engineer with 6 years of experience in designing and developing scalable cloud-native applications and large-scale distributed microservices. I specialize in end-to-end lifecycle management of cloud server devices with a focus on reliability, efficiency, and security. My expertise lies in collaborating with cross-functional teams to introduce, deploy, and manage innovative solutions that drive business value.
+            </p>
+            <p class="about-text">
+                Throughout my career, I've had the privilege of leading teams and architecting systems that serve millions of users. I take pride in creating robust, scalable solutions that solve real-world problems while maintaining clean, maintainable code.
+            </p>
+        </section>
+        
+        <!-- Experience Section -->
+        <section class="card" id="experience">
+            <h2 class="section-title">Professional Journey</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="job-title">Senior Engineer</h3>
+                    <span class="company">Deloitte</span>
+                    <span class="date">Apr 2023 - Present • Gurugram, India</span>
+                    <p class="job-description">
+                        As a Senior Technical Engineer, I manage GIS mapping of property and MCSuite, streamlining data integration which increased efficiency by 40% and supported critical decision-making for municipal projects impacting 1.5+ million citizens.
+                    </p>
+                    <ul class="job-description">
+                        <li>Created architecture of microservices and APIs using Spring Boot, Java 8, GitHub, Cloud, Swagger</li>
+                        <li>Lead a team of 12 members in developing and maintaining critical systems</li>
+                        <li>Implemented best practices in CI/CD and automated testing</li>
+                    </ul>
+                    <div class="job-skills">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Cloud</span>
+                        <span class="skill-tag">Team Leadership</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="job-title">Senior Engineer</h3>
+                    <span class="company">Nagarro India Ltd</span>
+                    <span class="date">Jun 2022 - Mar 2023 • Gurugram, India</span>
+                    <p class="job-description">
+                        As a Senior Engineer, I gained exposure to diverse applications and supported L2/L3 operations on an Ecommerce project leveraging Spring Boot, Cloud and microservices.
+                    </p>
+                    <div class="job-skills">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">RabbitMQ</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">Spring Cloud</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="job-title">Software Engineer</h3>
+                    <span class="company">National Informatics Center</span>
+                    <span class="date">Aug 2019 - Jun 2022 • Delhi, India</span>
+                    <p class="job-description">
+                        Developed and implemented 6+ pivotal applications for the Municipal Corporation of Delhi, resulting in a 35% improvement in service delivery and a 25% reduction in manual processing errors.
+                    </p>
+                    <ul class="job-description">
+                        <li>Spearheaded the development and deployment of the Notice Demand System, Amnesty Scheme, Property Tax Return, Factory License, and Leave Management System</li>
+                        <li>Increased system efficiency by 40% through optimization and enhanced user engagement by 30% with notifications and secure access</li>
+                        <li>Created entire projects from scratch, including high-level design and low-level design</li>
+                    </ul>
+                    <div class="job-skills">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">RabbitMQ</span>
+                        <span class="skill-tag">System Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section class="card" id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Property Tax System</h3>
+                        <span class="project-tech">Spring Boot, Microservices, REST APIs</span>
+                        <p class="project-description">
+                            Developed a comprehensive Property Tax web and app portal for Delhi, automating tax assessment, payment processing, and grievance redressal, enhancing efficiency and transparency for users and municipal authorities.
+                        </p>
+                        <a href="#" class="project-link">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Notice Demand System</h3>
+                        <span class="project-tech">Spring Boot, Microservices, REST APIs</span>
+                        <p class="project-description">
+                            Architected and launched the Notice Demand System within the Property Tax Portal, revolutionizing the issuance and tracking of tax notices. Converted the entire process from 100% paperwork to a fully paperless software solution.
+                        </p>
+                        <a href="#" class="project-link">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">GIS Mapping of Property</h3>
+                        <span class="project-tech">GIS, Spring Boot, Microservices</span>
+                        <p class="project-description">
+                            Led the implementation of GIS mapping for property management within the Property Tax Portal, enhancing data visualization and accuracy. Enabled real-time updates and improved decision-making with advanced geographic insights.
+                        </p>
+                        <a href="#" class="project-link">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Web Store</h3>
+                        <span class="project-tech">Spring Boot, Microservices, REST APIs</span>
+                        <p class="project-description">
+                            Played a key role in post-implementation support and maintenance of the Samsung Web Store, troubleshooting issues and implementing enhancements to improve usability and performance.
+                        </p>
+                        <a href="#" class="project-link">
+                            Learn more <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section class="card" id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Backend Development</h3>
+                    <ul class="skill-list">
+                        <li>Java (8+)</li>
+                        <li>Spring Boot</li>
+                        <li>Microservices Architecture</li>
+                        <li>RESTful APIs</li>
+                        <li>RabbitMQ</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Frontend Development</h3>
+                    <ul class="skill-list">
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>jQuery</li>
+                        <li>HTML5/CSS3</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="skill-category-title">DevOps & Cloud</h3>
+                    <ul class="skill-list">
+                        <li>Cloud Services</li>
+                        <li>GitHub</li>
+                        <li>Jenkins</li>
+                        <li>Docker</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Other Skills</h3>
+                    <ul class="skill-list">
+                        <li>System Design</li>
+                        <li>Swagger</li>
+                        <li>JIRA</li>
+                        <li>PostgreSQL</li>
+                        <li>Team Leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="card" id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <strong>Email</strong>
+                        <span>049kumar.sachin@gmail.com</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <strong>Phone</strong>
+                        <span>+91 8744047719</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-text">
+                        <strong>LinkedIn</strong>
+                        <span>linkedin.com/in/ksachin049</span>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-text">
+                        <strong>GitHub</strong>
+                        <span>github.com/sachin49kumar</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2023 Sachin Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
